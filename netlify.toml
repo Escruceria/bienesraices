@@ -1,5 +1,9 @@
 [build]
+  command = "echo \"Sitio estatico listo para publicar\""
   publish = "."
+
+[build.environment]
+  NODE_VERSION = "14.21.3"
 
 [[headers]]
   for = "/*"
