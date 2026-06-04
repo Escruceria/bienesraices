@@ -62,6 +62,18 @@ npx gulp
 
 El sitio puede abrirse directamente desde `index.html` o servirse desde un entorno local como XAMPP.
 
+## Despliegue en Netlify
+
+El proyecto incluye `netlify.toml` para publicar el sitio como proyecto estático.
+
+Configuración recomendada en Netlify:
+
+- Build command: dejar vacío.
+- Publish directory: `.`
+- Branch de despliegue: `master`.
+
+Después de conectar el repositorio de GitHub con Netlify, cada nuevo `git push` a `master` publicará los cambios automáticamente.
+
 ## Estado del proyecto
 
 El proyecto cuenta con una base funcional y versionada en Git. Las siguientes mejoras recomendadas son:
