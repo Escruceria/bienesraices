@@ -1,9 +1,6 @@
 [build]
-  command = "echo \"Sitio estatico listo para publicar\""
+  command = "npm run build"
   publish = "."
-
-[build.environment]
-  NODE_VERSION = "14.21.3"
 
 [[headers]]
   for = "/*"

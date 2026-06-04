@@ -57,7 +57,7 @@ npm install
 Ejecuta Gulp para compilar SCSS, minificar JavaScript, optimizar imágenes y generar versiones WebP:
 
 ```bash
-npx gulp
+npm run build
 ```
 
 El sitio puede abrirse directamente desde `index.html` o servirse desde un entorno local como XAMPP.
@@ -68,14 +68,11 @@ El proyecto incluye `netlify.toml` para publicar el sitio como proyecto estátic
 
 Configuración recomendada en Netlify:
 
-- Build command: `echo "Sitio estatico listo para publicar"`
+- Build command: `npm run build`
 - Publish directory: `.`
 - Branch de despliegue: `master`.
-- Node version: `14.21.3`.
 
 Después de conectar el repositorio de GitHub con Netlify, cada nuevo `git push` a `master` publicará los cambios automáticamente.
-
-La versión de Node está fijada en `netlify.toml` porque las dependencias actuales usan `node-sass@4`, una versión antigua que no compila correctamente con Node 22.
 
 ## Estado del proyecto
 

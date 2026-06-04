@@ -1,5 +1,5 @@
 const { src, dest, watch , parallel } = require('gulp');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const autoprefixer = require('autoprefixer');
 const postcss    = require('gulp-postcss')
 const sourcemaps = require('gulp-sourcemaps')
@@ -18,7 +18,7 @@ const paths = {
     imagenes: 'src/img/**/*'
 }
 
-// css es una función que se puede llamar automaticamente
+// Compila los estilos SCSS con Dart Sass y genera sourcemaps para depuracion.
 function css() {
     return src(paths.scss)
         .pipe(sourcemaps.init())
@@ -33,7 +33,7 @@ function css() {
 function javascript() {
     return src(paths.js)
       .pipe(sourcemaps.init())
-      .pipe(concat('bundle.js')) // final output file name
+      .pipe(concat('bundle.js'))
       .pipe(terser())
       .pipe(sourcemaps.write('.'))
       .pipe(rename({ suffix: '.min' }))
@@ -62,4 +62,5 @@ function watchArchivos() {
     watch( paths.imagenes, versionWebp );
 }
   
-exports.default = parallel(css, javascript,  imagenes, versionWebp, watchArchivos ); 
+exports.build = parallel(css, javascript, imagenes, versionWebp);
+exports.default = parallel(css, javascript, imagenes, versionWebp, watchArchivos); 
